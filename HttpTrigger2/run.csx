@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
 using Microsoft.Extensions.Configuration;
+using System.Diagnostics;
 
 // Azure dependencies
 using Microsoft.Rest;
@@ -19,7 +20,6 @@ using Microsoft.Azure.Management.Billing.Models;
 using Microsoft.Azure.Management.Subscription;
 using Microsoft.Azure.Management.Subscription.Models;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using System.Diagnostics;
 
 public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 {
@@ -35,6 +35,19 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
         ? (ActionResult)new OkObjectResult($"Hello, {name}")
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
+
+public static async Task<string> GetToken(string resource, string apiversion)
+{
+  string msiEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
+  string endpoint = $"{msiEndpoint}/?resource={resource}&api-version={apiversion}";
+  string msiSecret = Environment.GetEnvironmentVariable("MSI_SECRET");
+  tokenClient.DefaultRequestHeaders.Add("Secret", msiSecret);
+  JObject tokenServiceResponse = JsonConvert
+      .DeserializeObject<JObject>(await tokenClient.GetStringAsync(endpoint));
+  return tokenServiceResponse["access_token"].ToString();
+}
+
+
 
 /* namespace CreateSubSample
 {
@@ -122,13 +135,3 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
     }
 }
 */
-public static async Task<string> GetToken(string resource, string apiversion)
-{
-  string msiEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
-  string endpoint = $"{msiEndpoint}/?resource={resource}&api-version={apiversion}";
-  string msiSecret = Environment.GetEnvironmentVariable("MSI_SECRET");
-  tokenClient.DefaultRequestHeaders.Add("Secret", msiSecret);
-  JObject tokenServiceResponse = JsonConvert
-      .DeserializeObject<JObject>(await tokenClient.GetStringAsync(endpoint));
-  return tokenServiceResponse["access_token"].ToString();
-}
