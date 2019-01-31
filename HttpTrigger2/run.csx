@@ -1,9 +1,4 @@
 #r "Newtonsoft.Json"
-#r "Microsoft.Rest.ClientRuntime"
-#r "Microsoft.Rest.ClientRuntime.Azure.Authentication"
-#r "Microsoft.Azure.Management.Billing"
-#r "Microsoft.Azure.Management.Subscription"
-#r "Microsoft.IdentityModel.Clients.ActiveDirectory"
 
 using System;
 using System.IO;
