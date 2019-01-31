@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net46</TargetFramework>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Microsoft.Rest.ClientRuntime" Version="2.3.19" />
+        <PackageReference Include="Microsoft.Rest.ClientRuntime.Azure.Authentication" Version="2.3.7" />
+        <PackageReference Include="Microsoft.Azure.Management.Billing" Version="2.1.1-preview" />
+        <PackageReference Include="Microsoft.Azure.Management.Subscription" Version="1.1.1-preview" />
+        <PackageReference Include="Microsoft.IdentityModel.Clients.ActiveDirectory" Version="4.5.0" />
+    </ItemGroup>
+</Project>
