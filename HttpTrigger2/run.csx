@@ -13,7 +13,7 @@ using Microsoft.Extensions.Primitives;
 using Microsoft.Extensions.Configuration;
 
 // Azure dependencies
-using Microsoft.Rest;
+using Microsoft.Rest.ClientRuntime;
 using Microsoft.Rest.Azure.Authentication;
 using Microsoft.Azure.Management.Billing;
 using Microsoft.Azure.Management.Billing.Models;
