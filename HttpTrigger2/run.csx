@@ -1,16 +1,16 @@
 #r "Newtonsoft.Json"
 
-using System.Net;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Primitives;
-using Newtonsoft.Json;
 using System;
 using System.IO;
+using System.Net;
 using System.Linq;
 using System.Threading;
 using System.Collections.Generic;
-using Microsoft.Extensions.Configuration;
 using System.Diagnostics;
+using Newtonsoft.Json;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Primitives;
+using Microsoft.Extensions.Configuration;
 
 // Azure dependencies
 using Microsoft.Rest;

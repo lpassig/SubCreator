@@ -2,8 +2,10 @@
     "frameworks": {
       "net46":{
         "dependencies": {
-          "Microsoft.Rest": " 2.3.19", 
+          "Microsoft.Rest.ClientRuntime": " 2.3.19",
+          "Microsoft.Rest.ClientRuntime.Azure.Authentication": "2.3.7", 
           "Microsoft.Azure.Management.Billing": "2.1.1-preview",
+          "Microsoft.Azure.Management.Subscription": "1.1.1-preview", 
           "Microsoft.IdentityModel.Clients.ActiveDirectory": "4.5.0"
         }
       }
