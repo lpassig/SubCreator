@@ -48,7 +48,6 @@ public static async Task<string> GetToken(string resource, string apiversion)
 }
 
 
-
 /* namespace CreateSubSample
 {
     class Program
