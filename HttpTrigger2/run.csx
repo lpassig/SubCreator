@@ -36,7 +36,7 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
         : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
 }
 
-namespace CreateSubSample
+/* namespace CreateSubSample
 {
     class Program
     {
@@ -121,7 +121,7 @@ namespace CreateSubSample
         }
     }
 }
-
+*/
 public static async Task<string> GetToken(string resource, string apiversion)
 {
   string msiEndpoint = Environment.GetEnvironmentVariable("MSI_ENDPOINT");
